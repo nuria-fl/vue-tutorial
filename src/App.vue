@@ -20,6 +20,9 @@ export default {
 </script>
 
 <style media="screen">
+  body {
+    font-size: 1.7em;
+  }
   pre {
     margin: 2em 0;
   }

@@ -1,5 +1,5 @@
 <template>
-  <div class="container">
+  <div>
     <h2>Inicializar el proyecto</h2>
     <p>
       Para empezar nuestro proyecto de forma rápida usaremos <a href="https://github.com/vuejs/vue-cli">Vue CLI</a>. Es un módulo npm que instalaremos de modo global:
