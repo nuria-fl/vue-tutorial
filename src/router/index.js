@@ -4,6 +4,7 @@ import Home from '@/components/Home'
 import Init from '@/components/Init'
 import Step2 from '@/components/Step2'
 import Step3 from '@/components/Step3'
+import Step4 from '@/components/Step4'
 
 Vue.use(Router)
 
@@ -28,6 +29,11 @@ export default new Router({
       path: '/step3',
       name: 'Step3',
       component: Step3
+    },
+    {
+      path: '/step4',
+      name: 'Step4',
+      component: Step4
     }
   ]
 })

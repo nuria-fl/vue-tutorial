@@ -42,19 +42,28 @@
 
     <p>Ahora utiliza el mismo template para pintar los dos objetos. Acuérdate que puedes iterar por arrays y objetos usando <code>v-for="movie in movies"</code></p>
 
-    <p>¿Necesitas ayuda? <a href="#">Ver el código de este paso</a></p>
+    <p>¿Necesitas ayuda? <a href="#" @click.prevent="showResult">Ver el código de este paso</a></p>
 
+    <div :class="resultHidden ? 'hidden' : ''">
+      <h3>src/components/Home.vue</h3>
+
+      <pre>
+        
+      </pre>
+    </div>
     <router-link :to="{name: 'Step3'}" class="btn btn-lg btn-primary">Siguiente</router-link>
   </div>
 </template>
 
 <script>
+
+import resultMixin from '@/mixins/results'
 export default {
-  name: 'Init',
   data() {
     return {
       bindingExample: '{{ nombreDeLaPropiedad }}'
     }
-  }
+  },
+  mixins: [ resultMixin ]
 }
 </script>

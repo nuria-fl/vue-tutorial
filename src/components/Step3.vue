@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h2>Axios</h2>
+    <h2>Comunicación con la api</h2>
     <p>Ahora tenemos un componente que nos puede listar tantas películas como tengamos en el array, pero añadirlas a mano no apetece demasiado. Vamos a crear un servicio que haga una llamada a la api de MovieDB para rellenar el array dinámicamente.</p>
 
     <!-- <p>En primer lugar, deberás registrarte en <a href="https://www.themoviedb.org/account/signup?language=en" target="_blank">MovieDB</a> y conseguir una Api key. Una vez tengamos la cuenta verificada vamos a <a href="https://www.themoviedb.org/settings/api/new?type=developer" target="_blank">Settings</a> y rellenar un pequeño formulario.</p> -->
@@ -61,19 +61,13 @@
       <br>
     </div>
 
-    <router-link :to="{name: 'Step3'}" class="btn btn-lg btn-primary">Siguiente</router-link>
+    <router-link :to="{name: 'Step4'}" class="btn btn-lg btn-primary">Siguiente</router-link>
   </div>
 </template>
 
 <script>
 import resultMixin from '@/mixins/results'
 export default {
-  name: 'Init',
-  data() {
-    return {
-      bindingExample: '{{ nombreDeLaPropiedad }}',
-    }
-  },
   mixins: [ resultMixin ]
 }
 </script>
