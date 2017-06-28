@@ -61,11 +61,33 @@
       }
     </pre>
 
-    <p>Ahora tenemos que hacer un pequeño cambio en el componente Home para que el valor de selected se actualice. Añadiendo <code>.sync</code> a una propiedad podemos actualizarla automáticamente cada vez que se lance un evento <code>update:nombreDeLaPropiedad</code>:</p>
+    <p>Ahora tenemos que hacer un pequeño cambio en el componente Home para que el valor de selected se actualice. Añadiendo <code>.sync</code> a una propiedad podemos actualizarla automáticamente cada vez que se lance un evento <code>update:nombreDeLaPropiedad</code></p>
 
     <pre>
       &lt;dropdown :items="genres" :selected.sync="selectedGenre"&gt;&lt;dropdown&gt;
     </pre>
+
+    <p>Con el Vue Devtools abierto, prueba a seleccionar distintos géneros y mira si se actualiza la propiedad <code>selectedGenre</code> en el componente Home.</p>
+
+    <p>Ahora solo nos falta filtrar el array de películas por el género seleccionado. Esto lo podemos hacer con una <strong>propiedad computada</strong>. Las propiedades computadas son funciones normales, con la ventaja de que se actualizan automáticamente cada vez que cambian las propiedades de las que dependen. Vamos a filtrar el array movies solo si tenemos un género seleccionado:</p>
+
+    <pre>
+      computed: {
+        filteredMovies() {
+          if (this.selectedGenre) {
+            const genre = parseInt(this.selectedGenre)
+
+            return this.movies.filter( movie => {
+              return movie.genre_ids.indexOf(genre) !== -1
+            })
+          } else {
+            return this.movies
+          }
+        }
+      }
+    </pre>
+
+    <p>Por último, en el template cambia el v-for para que itere por la nueva propiedad computada <code>filteredMovies</code>. ¡Ya tenemos un filtro funcional!</p>
 
     <p>¿Necesitas ayuda? <a href="#" @click.prevent="showResult">Ver el código de este paso</a></p>
 
@@ -79,7 +101,7 @@
       <br>
     </div>
 
-    <router-link :to="{name: 'Step3'}" class="btn btn-lg btn-primary">Siguiente</router-link>
+    <router-link :to="{name: 'Step5'}" class="btn btn-lg btn-primary pull-right">Siguiente</router-link>
   </div>
 </template>
 

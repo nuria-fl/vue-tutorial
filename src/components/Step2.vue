@@ -48,10 +48,10 @@
       <h3>src/components/Home.vue</h3>
 
       <pre>
-        
+
       </pre>
     </div>
-    <router-link :to="{name: 'Step3'}" class="btn btn-lg btn-primary">Siguiente</router-link>
+    <router-link :to="{name: 'Step3'}" class="btn btn-lg btn-primary pull-right">Siguiente</router-link>
   </div>
 </template>
 

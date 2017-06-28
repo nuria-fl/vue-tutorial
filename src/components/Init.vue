@@ -23,7 +23,7 @@
       npm run dev
     </pre>
 
-    <router-link :to="{name: 'Step2'}" class="btn btn-lg btn-primary">Siguiente</router-link>
+    <router-link :to="{name: 'Step2'}" class="btn btn-lg btn-primary pull-right">Siguiente</router-link>
   </div>
 </template>
 

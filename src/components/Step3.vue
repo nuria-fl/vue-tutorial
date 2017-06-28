@@ -15,7 +15,7 @@
     <pre>
       export default {
         getMovies() {
-          return axios.get( )
+          return axios.get(url)
             .then((response) => {
               return response.data.results
             })
@@ -61,7 +61,7 @@
       <br>
     </div>
 
-    <router-link :to="{name: 'Step4'}" class="btn btn-lg btn-primary">Siguiente</router-link>
+    <router-link :to="{name: 'Step4'}" class="btn btn-lg btn-primary pull-right">Siguiente</router-link>
   </div>
 </template>
 
