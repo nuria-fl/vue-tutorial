@@ -50,7 +50,7 @@
       <br>
     </div>
 
-    <router-link :to="{name: 'Step5'}" class="btn btn-lg btn-primary pull-right">Siguiente</router-link>
+    <router-link :to="{name: 'Step6'}" class="btn btn-lg btn-primary pull-right">Siguiente</router-link>
   </div>
 </template>
 

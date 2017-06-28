@@ -3,8 +3,8 @@
     <br>
     <h1>Construir una aplicación con Vue.js</h1>
     <br>
-    <app-menu></app-menu>
     <router-view></router-view>
+    <app-menu></app-menu>
   </div>
 </template>
 

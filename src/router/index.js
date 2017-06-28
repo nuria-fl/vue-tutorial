@@ -6,10 +6,13 @@ import Step2 from '@/components/Step2'
 import Step3 from '@/components/Step3'
 import Step4 from '@/components/Step4'
 import Step5 from '@/components/Step5'
+import Step6 from '@/components/Step6'
+import Extras from '@/components/Extras'
 
 Vue.use(Router)
 
 export default new Router({
+  mode: 'history',
   routes: [
     {
       path: '/',
@@ -40,6 +43,23 @@ export default new Router({
       path: '/step5',
       name: 'Step5',
       component: Step5
+    },
+    {
+      path: '/step6',
+      name: 'Step6',
+      component: Step6
+    },
+    {
+      path: '/extras',
+      name: 'Extras',
+      component: Extras
     }
-  ]
+  ],
+  scrollBehavior (to, from, savedPosition) {
+    if (savedPosition) {
+      return savedPosition
+    } else {
+      return { x: 0, y: 0 }
+    }
+  }
 })
