@@ -54,6 +54,32 @@
 
       <h3>src/components/Home.vue</h3>
       <pre>
+        &lt;template>
+          &lt;div>
+            &lt;article v-for="movie in movies">
+              &lt;img :src="`https://image.tmdb.org/t/p/w500/${movie.poster_path}`" alt="">
+              &lt;h4>{{ movie.title }}&lt;/h4>
+              &lt;p>{{movie.vote_average}}&lt;/p>
+            &lt;/article>
+          &lt;/div>
+        &lt;/template>
+
+        &lt;script>
+        import api from '@/services/api'
+
+        export default {
+          data () {
+            return {
+              movies: []
+            }
+          },
+          created() {
+            api.getMovies().then(data => {
+              this.movies = data
+            })
+          }
+        }
+        &lt;/script>
       </pre>
 
       <button type="button" @click="hideResult" class="btn btn--default btn--sm">Ocultar</button>

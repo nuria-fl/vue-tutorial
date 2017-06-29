@@ -109,7 +109,7 @@
       const movieIdx = state.movies.findIndex(movie => movie.id === movieId)
     </pre>
 
-    <p>Ahora que tenemos el índice, parece que hacer el cambio debería ser tan fácil como <code>state[movieIdx].saved = true</code>, pero la capacidad de Vue para reaccionar a los cambios (volver a calcular propiedades computadas, bindings, etc) es limitada, y no se da cuenta si añadimos una propiedad nueva a un objeto. Lo podemos solucionar fácilmente reemplazando todo el objeto, así Vue crea una nueva referencia y se recalcula todo como esperamos:</p>
+    <p>Ahora que tenemos el índice, podríamos hacer <code>state[movieIdx].saved = true</code>, pero como hemos visto antes, Vue no es capaz de reaccionar a nuevas propiedades de un objeto. Antes hemos usado <code>Vue.set</code>, otra solución fácil es reemplazar todo el objeto, así Vue crea una nueva referencia y se recalcula todo como esperamos:</p>
 
     <pre>
       const updatedMovie = Object.assign({}, state.movies[movieIdx], {saved: true})

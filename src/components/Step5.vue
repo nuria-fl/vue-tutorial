@@ -4,7 +4,7 @@
     <p>Vamos a añadir un botón para marcar una película como favorita. Primero de todo vamos a mover el detalle de la película en un componente propio para separar funcionalidades. Crea un nuevo componente <code>Movie.vue</code> que reciba una propiedad <code>movie</code> e impórtalo en el componente Home. Puedes iterar con <code>v-for</code> sobre un componente de la misma forma que con un tag normal de html:</p>
 
     <pre>
-      &lt;movie v-for="movie in filteredMovies" :movie="movie"&gt;&lt;movie&gt;
+      &lt;movie v-for="movie in filteredMovies" :movie="movie"&gt;&lt;/movie&gt;
     </pre>
 
     <p>
@@ -20,7 +20,15 @@
       &lt;/article>
     </pre>
 
-    <p>Ahora crea un método <code>saveMovie</code> en <code>@click</code> del botón, que setee <code>movie.saved</code> a <code>true</code>. Haz una condición en el template que muestre alguna marca de que la película se ha marcado correctamente. Usando font awesome, podemos cambiar la clase según una condición así:</p>
+    <p>Ahora crea un método <code>saveMovie</code> en <code>@click</code> del botón, que setee <code>movie.saved</code> a <code>true</code>. Parece que hacer el cambio debería ser tan fácil como <code>movie.saved = true</code>, pero la capacidad de Vue para reaccionar a los cambios (volver a calcular propiedades computadas, bindings, etc) es limitada, y no se da cuenta si añadimos una propiedad nueva a un objeto. Una solución fácil es usar <code>Vue.set</code>, más adelante veremos otras. Nos quedará así</p>
+
+    <pre>
+      saveMovie() {
+        this.$set(this.movie, 'saved', true)
+      }
+    </pre>
+
+    <p>Haz una condición en el template que muestre alguna marca de que la película se ha marcado correctamente. Usando font awesome, podemos cambiar la clase según una condición así:</p>
 
     <pre>
       &lt;i :class="movie.saved ? 'fa fa-check' : 'fa fa-star'">&lt;/i>
@@ -36,13 +44,82 @@
     <p>¿Necesitas ayuda? <a href="#" @click.prevent="showResult">Ver el código de este paso</a></p>
 
     <div :class="resultHidden ? 'hidden' : ''">
-      <h3>src/components/Home.vue</h3>
-      <pre>
-
-      </pre>
-
       <h3>src/components/Movie.vue</h3>
       <pre>
+        &lt;template>
+          &lt;article>
+            &lt;button class="movies__like" @click="saveMovie()">
+              &lt;i :class="movie.saved ? 'fa fa-check' : 'fa fa-star'">&lt;/i>
+            &lt;/button>
+            &lt;span v-show="movie.saved">lalala&lt;/span>
+            &lt;img :src="`https://image.tmdb.org/t/p/w500/${movie.poster_path}`" alt="">
+          &lt;/article>
+
+        &lt;/template>
+
+        &lt;script>
+        import Vue from 'vue'
+        export default {
+          props: ['movie'],
+          methods: {
+            saveMovie() {
+              this.$set(this.movie, 'saved', true)
+            }
+          }
+        }
+        &lt;/script>
+      </pre>
+
+      <h3>src/components/Home.vue</h3>
+      <pre>
+        &lt;template>
+          &lt;div>
+            &lt;dropdown :items="genres" :selected.sync="selectedGenre">&lt;/dropdown>
+
+            &lt;movie v-for="movie in filteredMovies" :movie="movie">&lt;/movie>
+          &lt;/div>
+        &lt;/template>
+
+        &lt;script>
+        import api from '@/services/api'
+        import dropdown from './Dropdown'
+        import movie from './Movie'
+
+        export default {
+          data () {
+            return {
+              movies: [],
+              genres: [],
+              selectedGenre: null
+            }
+          },
+          components: {
+            dropdown,
+            movie
+          },
+          created() {
+            api.getMovies().then(data => {
+              this.movies = data
+            })
+            api.getGenres().then(data => {
+              this.genres = data
+            })
+          },
+          computed: {
+            filteredMovies() {
+              if (this.selectedGenre) {
+                const genre = parseInt(this.selectedGenre)
+
+                return this.movies.filter( movie => {
+                  return movie.genre_ids.indexOf(genre) !== -1
+                })
+              } else {
+                return this.movies
+              }
+            }
+          }
+        }
+        &lt;/script>
       </pre>
 
       <button type="button" @click="hideResult" class="btn btn--default btn--sm">Ocultar</button>

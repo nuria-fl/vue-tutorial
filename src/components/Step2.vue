@@ -40,7 +40,7 @@
       ]
     </pre>
 
-    <p>Ahora utiliza el mismo template para pintar los dos objetos. Acuérdate que puedes iterar por arrays y objetos usando <code>v-for="movie in movies"</code></p>
+    <p>Ahora utiliza el mismo template para pintar los dos objetos. Acuérdate que puedes iterar por arrays y objetos usando <code>v-for="movie in movies"</code>, y ten en cuenta que el template solo puede tener un elemento raíz, así que tenemos que poner el <code>v-for</code> dentro de un elemento <code>div</code>.</p>
 
     <p><strong>Nota:</strong> En este tutorial no vamos a cubrir el css de la aplicación, puedes hacer el tuyo propio, usar una librería tipo bootstrap, o copiar los de la aplicación original, que encontrarás <a href="https://github.com/nuria-fl/vue-demo/tree/master/src/assets/scss" target="_blank">aquí</a></p>
 
@@ -50,7 +50,60 @@
       <h3>src/components/Home.vue</h3>
 
       <pre>
+        &lt;template>
+          &lt;div>    
+            &lt;article v-for="movie in movies">
+              &lt;img :src="`https://image.tmdb.org/t/p/w500/${movie.poster_path}`" alt="">
+              &lt;h4>{{ movie.title }}&lt;/h4>
+              &lt;p>{{movie.vote_average}}&lt;/p>
+            &lt;/article>
+          &lt;/div>
+        &lt;/template>
 
+        &lt;script>
+        export default {
+          data () {
+            return {
+              movies: [
+                {
+                  "vote_average":7,
+                  "title":"Wonder Woman",
+                  "poster_path":"\/gfJGlDaHuWimErCr5Ql0I8x9QSy.jpg",
+                  "overview":"An Amazon princess comes to the world of Man to become the greatest of the female superheroes.",
+                  "release_date":"2017-05-30"
+                },
+                {
+                  "vote_average":8.1,
+                  "title":"Interstellar",
+                  "poster_path":"\/nBNZadXqJSdt05SHLqgT0HuC5Gm.jpg",
+                  "overview":"Interstellar chronicles the adventures of a group of explorers who make use of a newly discovered wormhole to surpass the limitations on human space travel and conquer the vast distances involved in an interstellar voyage.",
+                  "release_date":"2014-11-05"
+                }
+              ]
+            }
+          }
+        }
+        &lt;/script>
+      </pre>
+
+      <h3>src/router/index.js</h3>
+
+      <pre>
+        import Vue from 'vue'
+        import Router from 'vue-router'
+        import Home from '@/components/Home'
+
+        Vue.use(Router)
+
+        export default new Router({
+          routes: [
+            {
+              path: '/',
+              name: 'Home',
+              component: Home
+            }
+          ]
+        })
       </pre>
     </div>
     <router-link :to="{name: 'Step3'}" class="btn btn-lg btn-primary pull-right">Siguiente</router-link>

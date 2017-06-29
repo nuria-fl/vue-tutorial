@@ -15,7 +15,7 @@
       vue init nuria-fl/webpack vue-movies
     </pre>
 
-    Nos hará varias preguntas sobre como queremos configurar nuestro proyecto. Podemos usar los valores por defecto (apretando enter). Una vez terminado nos saldrá por pantalla los siguientes pasos a seguir:
+    Nos hará varias preguntas sobre como queremos configurar nuestro proyecto. Podemos usar los valores por defecto (apretando enter) para todo, menos para linter y testing, que no vamos a cubrir en este tutorial. Una vez terminado nos saldrá por pantalla los siguientes pasos a seguir:
 
     <pre>
       cd vue-movies
