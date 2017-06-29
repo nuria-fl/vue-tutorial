@@ -44,6 +44,9 @@ export default {
         },
         {
           title: 'Vuex'
+        },
+        {
+          title: 'Escalando nuestra app'
         }
       ]
     }

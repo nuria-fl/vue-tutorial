@@ -7,6 +7,7 @@ import Step3 from '@/components/Step3'
 import Step4 from '@/components/Step4'
 import Step5 from '@/components/Step5'
 import Step6 from '@/components/Step6'
+import Step7 from '@/components/Step7'
 import Extras from '@/components/Extras'
 
 Vue.use(Router)
@@ -48,6 +49,11 @@ export default new Router({
       path: '/vue-tutorial/step6',
       name: 'Step6',
       component: Step6
+    },
+    {
+      path: '/vue-tutorial/step7',
+      name: 'Step7',
+      component: Step7
     },
     {
       path: '/vue-tutorial/extras',

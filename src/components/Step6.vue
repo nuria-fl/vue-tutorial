@@ -121,7 +121,7 @@
       state.movies.splice(movieIdx, 1, updatedMovie)
     </pre>
 
-    <p>¡Ahora ya sí!</p>
+    <p>¡Ahora ya sí! Tenemos todo el estado centralizado. Nuestra app está lista para crecer.</p>
 
     <p>¿Necesitas ayuda? <a href="#" @click.prevent="showResult">Ver el código de este paso</a></p>
 
@@ -140,11 +140,6 @@
             genres: []
           },
           getters: {
-            savedMovies (state) {
-              return state.movies.filter(movie => {
-                return movie.saved === true
-              })
-            }
           },
           mutations: {
             addMovie (state, movie) {
@@ -299,7 +294,7 @@
       <br>
     </div>
 
-    <router-link :to="{name: 'Extras'}" class="btn btn-lg btn-primary pull-right">Fin</router-link>
+    <router-link :to="{name: 'Step7'}" class="btn btn-lg btn-primary pull-right">Siguiente</router-link>
   </div>
 </template>
 
