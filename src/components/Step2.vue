@@ -42,6 +42,8 @@
 
     <p>Ahora utiliza el mismo template para pintar los dos objetos. Acuérdate que puedes iterar por arrays y objetos usando <code>v-for="movie in movies"</code></p>
 
+    <p><strong>Nota:</strong> En este tutorial no vamos a cubrir el css de la aplicación, puedes hacer el tuyo propio, usar una librería tipo bootstrap, o copiar los de la aplicación original, que encontrarás <a href="https://github.com/nuria-fl/vue-demo/tree/master/src/assets/scss" target="_blank">aquí</a></p>
+
     <p>¿Necesitas ayuda? <a href="#" @click.prevent="showResult">Ver el código de este paso</a></p>
 
     <div :class="resultHidden ? 'hidden' : ''">
