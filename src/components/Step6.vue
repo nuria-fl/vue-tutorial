@@ -1,7 +1,9 @@
 <template>
   <div>
     <h2>Vuex</h2>
-    <p></p>
+    <p>Ya tenemos una aplicación funcional, pero ahora tenemos todo el estado centralizado en el componente Home. Si nuestra app es pequeña esto no supone ningún problema, pero si queremos que crezca añadiendo nuevas secciones y funcionalidades, cada vez se nos va a hacer más complicado gestionar el estado desde un solo componente.</p>
+
+    <p>Para solucionar este tipo de problemas existen librerías de <strong>state management</strong>. Vamos a usar la oficial que de Vue, <a href="https://vuex.vuejs.org/en/" target="_blank">Vuex</a>.</p>
 
     <p>¿Necesitas ayuda? <a href="#" @click.prevent="showResult">Ver el código de este paso</a></p>
 

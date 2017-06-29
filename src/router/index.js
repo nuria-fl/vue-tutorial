@@ -15,42 +15,42 @@ export default new Router({
   mode: 'history',
   routes: [
     {
-      path: '/',
+      path: '/vue-tutorial/',
       name: 'Home',
       component: Home
     },
     {
-      path: '/step1',
+      path: '/vue-tutorial/step1',
       name: 'Step1',
       component: Init
     },
     {
-      path: '/step2',
+      path: '/vue-tutorial/step2',
       name: 'Step2',
       component: Step2
     },
     {
-      path: '/step3',
+      path: '/vue-tutorial/step3',
       name: 'Step3',
       component: Step3
     },
     {
-      path: '/step4',
+      path: '/vue-tutorial/step4',
       name: 'Step4',
       component: Step4
     },
     {
-      path: '/step5',
+      path: '/vue-tutorial/step5',
       name: 'Step5',
       component: Step5
     },
     {
-      path: '/step6',
+      path: '/vue-tutorial/step6',
       name: 'Step6',
       component: Step6
     },
     {
-      path: '/extras',
+      path: '/vue-tutorial/extras',
       name: 'Extras',
       component: Extras
     }
