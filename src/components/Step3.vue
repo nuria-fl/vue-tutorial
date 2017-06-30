@@ -29,71 +29,8 @@
 
     <p>Importa el servicio en el componente que has creado en el paso anterior y llama la función <code>getMovies</code>. Acuérdate que en un componente podemos crear hooks que se ejecutan en determinados momentos del ciclo de vida de un componente. En este caso nos interesa ir a buscar la información cuando se crea el componente, es decir, en el hook <code>created()</code>. Como nuestro servicio usa promises, en el <code>then</code> podemos asignar la respuesta de la api a nuestro array <code>movies</code></p>
 
-    <p>¿Necesitas ayuda? <a href="#" @click.prevent="showResult">Ver el código de este paso</a></p>
-
-    <div :class="resultHidden ? 'hidden' : ''">
-      <h3>src/services/api.js</h3>
-      <pre>
-        import axios from 'axios'
-
-        const host = 'https://api.themoviedb.org/3'
-        const apiKey = 'api_key=4bcacd5bcdf6d2ae0125c890eab6e4ae';
-
-        export default {
-          getMovies() {
-            return axios.get(`${host}/discover/movie?${apiKey}`)
-              .then(function (response) {
-                return response.data.results;
-              })
-              .catch(function (error) {
-                console.log(error);
-              });
-          }
-        }
-      </pre>
-
-      <h3>src/components/Home.vue</h3>
-      <pre>
-        &lt;template>
-          &lt;div>
-            &lt;article v-for="movie in movies">
-              &lt;img :src="`https://image.tmdb.org/t/p/w500/${movie.poster_path}`" alt="">
-              &lt;h4>{{ movie.title }}&lt;/h4>
-              &lt;p>{{movie.vote_average}}&lt;/p>
-            &lt;/article>
-          &lt;/div>
-        &lt;/template>
-
-        &lt;script>
-        import api from '@/services/api'
-
-        export default {
-          data () {
-            return {
-              movies: []
-            }
-          },
-          created() {
-            api.getMovies().then(data => {
-              this.movies = data
-            })
-          }
-        }
-        &lt;/script>
-      </pre>
-
-      <button type="button" @click="hideResult" class="btn btn--default btn--sm">Ocultar</button>
-      <br>
-      <br>
-    </div>
+    <p>¿Necesitas ayuda? <a href="https://gist.github.com/nuria-fl/93e3bb6f18faf22ef6b9b0ff20d265a6" target="_blank">Ver el código de este paso</a></p>
 
     <router-link :to="{name: 'Step4'}" class="btn btn-lg btn-primary pull-right">Siguiente</router-link>
   </div>
 </template>
-
-<script>
-import resultMixin from '@/mixins/results'
-export default {
-  mixins: [ resultMixin ]
-}
-</script>
