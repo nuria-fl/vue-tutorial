@@ -20,7 +20,7 @@
       &lt;/article>
     </pre>
 
-    <p>Ahora crea un método <code>saveMovie</code> en <code>@click</code> del botón, que setee <code>movie.saved</code> a <code>true</code>. Parece que hacer el cambio debería ser tan fácil como <code>movie.saved = true</code>, pero la capacidad de Vue para reaccionar a los cambios (volver a calcular propiedades computadas, bindings, etc) es limitada, y no se da cuenta si añadimos una propiedad nueva a un objeto. Una solución fácil es usar <code>Vue.set</code>, más adelante veremos otras. Nos quedará así</p>
+    <p>Ahora crea un método <code>saveMovie</code> en <code>@click</code> del botón, que setee <code>movie.saved</code> a <code>true</code> (en el mundo real deberíamos comunicarnos con un backend y guardar esto en una base de datos, pero como nos estamos centrando en el front vamos a saltarnos este paso). Parece que hacer el cambio debería ser tan fácil como <code>movie.saved = true</code>, pero la capacidad de Vue para reaccionar a los cambios (volver a calcular propiedades computadas, bindings, etc) es limitada, y no se da cuenta si añadimos una propiedad nueva a un objeto. Una solución fácil es usar <code>Vue.set</code>, más adelante veremos otras. Nos quedará así</p>
 
     <pre>
       saveMovie() {
