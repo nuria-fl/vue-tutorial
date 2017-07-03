@@ -53,7 +53,7 @@
     <p>Vamos a realizar algunos cambios al componente <code>Home</code> para que coja la información de nuestro store. Desde un componente podemos acceder a las propiedades del store usando <code>this.$store.state.nombreDeLaPropiedad</code>, pero es un poco engorroso. Vuex nos ofrece unos helpers para hacerlo más sencillo.</p>
 
     <pre>
-      import { mapState } from Vuex
+      import { mapState } from 'vuex'
 
       export default {
         computed: {
